@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="dao.xml"/>
+    <bean id="appService"  class="com.example.service.impl.AppServiceImpl" factory-method="createInstance">
+        <constructor-arg name="appDao" ref="appDaoBean"/>
+<!--        <property name="appDao" ref="appDao"/>--> <!-- setter injection -->
+    </bean>
+    <bean id="appService1" primary="true" class="com.example.service.impl.AppServiceImpl">
+        <constructor-arg name="appDao" ref="appDaoBean1"/>
+        <!--        <property name="appDao" ref="appDao"/>--> <!-- setter injection -->
+    </bean>
+</beans>
